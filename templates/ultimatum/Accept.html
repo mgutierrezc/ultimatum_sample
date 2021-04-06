@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+
+    <p style="color:lightgrey"> Ronda {{ group.round_number }}</p>
+    Tu rol y tu decisión
+
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Tú eres el participante de <strong>rol B</strong>.
+        Debes decidir si aceptas o rechazas la repartición propuesta por tu contraparte de rol A.
+    </p>
+
+    <p>
+        De los {{ Constants.endowment }} asignados, el participante de rol A te ha ofrecido {{ group.amount_offered }}.
+    </p>
+
+    </br>
+    <p><b>¿Aceptas la oferta?</b></p>
+    <div>
+        <button name="offer_accepted" value="True" class="btn btn-primary btn-large">
+            Sí
+        </button>
+        <button name="offer_accepted" value="False" class="btn btn-primary btn-large">
+            No
+        </button>
+    </div>
+
+    </br></br></br></br></br></br>
+    {% include Constants.instructions_template %}
+
+
+{% endblock %}
+

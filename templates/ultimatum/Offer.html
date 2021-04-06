@@ -1,0 +1,36 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+
+{% block title %}
+
+    <p style="color:lightgrey"> Ronda {{ group.round_number }}</p>
+    Tu rol y tu decisión
+
+{% endblock %}
+
+{% block content %}
+
+    <p>
+
+            Tú tienes rol <strong>A</strong>, y debes proponer la repartición de los {{ Constants.endowment }}.
+
+    </p>
+
+    <p>
+            Qué monto, de los {{ Constants.endowment }}, deseas ofrecer al participante de rol B?
+
+    </p>
+
+    </br>
+    {% formfield group.amount_offered with label="Ingrese el monto aquí:" %}
+
+    </br></br>
+    {% next_button %}
+
+
+    </br></br></br></br></br></br>
+    {% include Constants.instructions_template %}
+
+{% endblock %}
+

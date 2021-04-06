@@ -1,0 +1,55 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+
+    <p style="color:lightgrey"> Ronda {{ group.round_number }} </p>
+    Resultados
+
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        {% if player.id_in_group == 1 %}
+
+                Tu monto inicial fue de {{ Constants.endowment }}, de los cuales tu ofreciste {{ group.amount_offered }} al otro participante.
+
+            {% if group.offer_accepted %}
+
+                    Tu oferta fue aceptada.
+
+            {% else %}
+
+                    Tu oferta fue rechazada.
+
+            {% endif %}
+        {% else %}
+
+                El otro participante te ha ofrecido {{ group.amount_offered }} de un total de {{ Constants.endowment }}.
+
+            {% if group.offer_accepted %}
+
+                    Tu has aceptado esta oferta.
+
+            {% else %}
+
+                    Tu has rechazado esta oferta.
+
+            {% endif %}
+        {% endif %}
+    </p>
+
+    <p>
+
+            Tu pago de esta ronda es de {{ player.payoff }}.
+
+    </p>
+
+    </br>
+    {% next_button %}
+
+
+
+{% endblock %}
+

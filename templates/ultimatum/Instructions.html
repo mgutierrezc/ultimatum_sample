@@ -1,0 +1,85 @@
+{% load staticfiles otree_tags %}
+
+<div class="instructions well well-lg">
+
+    <h3 class="panel-sub-heading">
+        Instrucciones
+    </h3>
+
+    <div class="panel-body">
+
+
+        <p>
+            En esta parte del experimento vas a participar en {{ Constants.num_rounds }} rondas de la misma interacción.
+            Al inicio de una ronda, cada participante será emparejado con otro participante.
+            Este emparejamiento se realizará al azar y de forma anónima. Es decir, cada uno tendrá una contraparte pero
+            no sabrá quién es ni durante ni después del experimento. Su identidad tampoco será
+            revelada a su contraparte.
+        </p>
+
+        <p>
+            Luego, se asignarán dos tipos de roles A y B.
+            En cada par, uno de los miembros tendrá <strong>rol A </strong>, mientras que el
+            otro tendrá <strong> rol B </strong>.
+            Los roles serán asignados al azar y cada participante será informado/a en su pantalla
+            de computadora. Aunque las parejas que se formen cambian de periodo a periodo, los roles son fijos:
+            quienes reciben rol A, permanecen en rol A en todas las rondas. Igual para quienes reciben rol B.
+        </p>
+
+        <p>
+            El participante de rol A tiene la tarea de dividir {{ Constants.endowment }} entre
+            él/ella y su contraparte de rol B. Para ello, el rol A hará una oferta del tipo
+            tómalo-o-déjalo al participante de rol B, quien podrá aceptarla o rechazarla.
+            Si rol B rechaza la oferta, ambos participantes recibirán {{ Constants.payoff_if_rejected }}.
+            Si rol B acepta la oferta, la división propuesta por rol A se implementará.
+
+        </p>
+
+        <h4 class="panel-sub-heading">
+            Rol A
+        </h4>
+
+        <p>
+            En cada ronda, el participante de rol A tiene las siguientes {{ Constants.offer_choices_count }}
+            opciones de cómo dividir los {{ Constants.endowment }} entre él/ella y su contraparte de rol B.
+        </p>
+
+        <ol>
+            {% for give, keep in Constants.keep_give_amounts %}
+               <li> Rol A le da {{ give }} a rol B, y Rol A se queda con {{ keep }}</li>
+            {% endfor %}
+        </ol>
+
+        <h4 class="panel-sub-heading">
+            Rol B
+        </h4>
+
+        <p>
+            Este participante debe aceptar o rechazar la oferta. Si rol B rechaza la oferta, ambos
+            participantes recibirán {{ Constants.payoff_if_rejected }}. Si rol B acepta la oferta,
+            la división propuesta por rol A se implementará.
+
+        </p>
+
+        <h4 class="panel-sub-heading">
+            Pagos
+        </h4>
+
+        <p>
+            Una página de resultados de la ronda mostrará el resultado de las decisiones en cada par.
+            Se mostrará qué división fué propuesta y si ésta fue aceptada o rechazada.
+            Se mostrará los pagos correspondientes para cada miembro del par.
+        </p>
+
+
+        Además, se mostrará uno de los siguientes pagos:
+        <ul>
+            <li>Si la oferta es aceptada, los participantes recibirán los pagos
+                acordes a dicha oferta
+            </li>
+            <li>Si la oferta es rechazada, ambos participantes recibirán {{ Constants.payoff_if_rejected }}</li>
+        </ul>
+
+    </div>
+
+</div>
