@@ -1,3 +1,4 @@
+```python
 SESSION_CONFIGS = [
     	{'name': 'ultimatum',
          'display_name': "Ultimatum",
@@ -5,3 +6,4 @@ SESSION_CONFIGS = [
          'app_sequence': ['ultimatum'],
      }
 ]
+```
